@@ -13,12 +13,13 @@ import { SuspenseCard } from "./components/SuspenseCard";
 import Pagination from "./components/Pagination";
 
 
-async function getData(searchParams:string) {
+async function getData(page:string) {
+  const pageNumber = page ? Number(page) : 1;
   const [count, data] = await prisma.$transaction([
     prisma.post.count(),
     prisma.post.findMany({
     take:10,
-    skip: searchParams ? (Number(searchParams) - 1) * 10 : 0,
+    skip: (pageNumber - 1) * 10,
     select: {
       title: true,
       createdAt: true,
@@ -93,6 +94,7 @@ export default  async function Home({searchParams}:{searchParams:{page: string} 
 
 
 async function ShowItems({searchParams}:{searchParams:{page: string} }){
+  const page = searchParams.page ?? "1";
     const {count, data}= await getData(searchParams.page);
     return (
       <>

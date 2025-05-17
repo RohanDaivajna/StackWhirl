@@ -65,8 +65,12 @@ async function getData(name: string, searchParams: string) {
 
     return {data, count}
 }
+type PageProps = {
+  params: { id: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
 
-export default async function SubredditRoute({params,searchParams}:{params: {id: string}; searchParams:{page: string}}) {
+export default async function SubredditRoute({params,searchParams}: PageProps) {
 
     const {data, count} = await getData(params.id, searchParams.page);
     const {getUser} =getKindeServerSession();

@@ -55,7 +55,7 @@ async function getData(page:string) {
 }
 
 
-export default  async function Home({searchParams}:{searchParams:{page: string} }) {
+export default  async function Home({searchParams}:{searchParams?: any}) {
 
   return (
     <div className="max-w-[1000px] mx-auto flex gap-x-10 mt-4 mb-10">
@@ -93,7 +93,7 @@ export default  async function Home({searchParams}:{searchParams:{page: string} 
 }
 
 
-async function ShowItems({searchParams}:{searchParams:{page: string} }){
+async function ShowItems({searchParams}:{searchParams?: any }){
   const page = searchParams.page ?? "1";
     const {count, data}= await getData(searchParams.page);
     return (

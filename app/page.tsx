@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
-import Banner from "../public/banner.png";
-import HelloImage from "../public/hero-image.png";
+// import Banner from "../public/banner.png";
+// import HelloImage from "../public/hero-image.png";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -67,10 +67,10 @@ export default  async function Home({searchParams}:{searchParams?: any}) {
       </div>
       <div className="w-[35%] ">
         <Card className="">
-          <Image src={Banner} alt="Banner"/>
+          <Image src="/banner.png" alt="Banner"/>
           <div className="p-2">
             <div className="flex items-center gap-x-2">
-              <Image src={HelloImage} 
+              <Image src="/hero-image.png"
               alt="Hello Image" 
               className="w-20 h-16 -mt-8 "/>
               <h1 className="-mt-3 font-medium">Home</h1>
